@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretty by Jyrdan</title>
+
+<!--Shrikhand Font  -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+<!--Quicksand Font  -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+<!--Cinzel Decorative  -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+    <header>
+  <div class="logo">
+            <img src="Logo1 (1).png" alt="Pretty by Jyrdan Logo">
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Shop &#9662;</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Dresses.html">Dresses</a></li>
+                    <li><a href="Tops.html">Tops</a></li>
+                    <li><a href="Bottoms.html">Bottoms</a></li>
+                    <li><a href="Accessories.html">Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="Aboutus.html">About Us</a></li>
+            <li><a href="Contactus.html">Contact us</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section class="hero">
+        <img src="Banner.jpg" alt="Shopping Woman">
+        <h2 >New Arrivals are <br> Here</h2>
+    </section>
+
+    <section class="shop">
+        <button class="shop-btn">SHOP FOR NEW ARRIVALS</button>
+
+        <div class="product-slider">
+    <button class="arrow left">&#9664;</button>
+    
+    <!-- ADD A NEW CONTAINER TO HOLD SLIDING ITEMS -->
+    <div class="carousel-container">
+        <div class="product-list">
+            <div class="product">
+                <img src="BeigeBag.jpg" alt="Beige Casual Bag">
+                <p>Beige Casual Bag</p>
+                <p>$68.56</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+            <div class="product">
+                <img src="BrownBag.jpg" alt="Brown Casual Bag">
+                <p>Brown Casual Bag</p>
+                <p>$68.56</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+            <div class="product">
+                <img src="OrangeBag.jpg" alt="Orange Casual Bag">
+                <p>Orange Casual Bag</p>
+                <p>$68.56</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+
+            <!--Clothes Add -->
+
+            <div class="product">
+                <img src="Maxi_Party_Dress_With_Belt.jpg" alt="Maxi Party Dress With Belt">
+                <p>Maxi Party Dress With Belt</p>
+                <p>$103.99</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+            <div class="product">
+                <img src="Linen Urban Plain Cross Blouse.png" alt="Linen Urban Plain Cross Blouse">
+                <p>Linen Urban Plain Cross Blouse</p>
+                <p>$40.79</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+            <div class="product">
+                <img src="Urban_Random_Print_Midi_Dress.jpg" alt="Urban Random Print Midi Dress">
+                <p>Urban Random Print Midi Dress</p>
+                <p>$51.99</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+
+            <div class="product">
+                <img src="Leather_All_Season_Urban_Flat.jpg" alt="Leather All Season Urban Flat">
+                <p>Leather All Season Urban Flat</p>
+                <p>$59.99</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+            <div class="product">
+                <img src="Urban_Clutch_Bag.jpg" alt="Urban Clutch Bag">
+                <p>Urban Clutch Bag</p>
+                <p>$54.99</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+            <div class="product">
+                <img src="Elegant_Buttoned_Color_Block_Blazer.jpg" alt="Elegant Buttoned Color Block Blazer">
+                <p>Elegant Buttoned Color Block Blazer</p>
+                <p>$66.39</p>
+                <button class="add-to-cart">🛍 add</button>
+            </div>
+        </div>
+    </div>
+    
+    <button class="arrow right">&#9654;</button>
+</div>
+
+
+    </section>
+
+        <footer>
+        <p>&copy; 2025 Pretty by Jyrdan. All rights reserved.</p>
+    </footer>
+
+    <script >
+     document.addEventListener("DOMContentLoaded", function () {
+    const productList = document.querySelector(".product-list");
+    const products = document.querySelectorAll(".product");
+    const prevBtn = document.querySelector(".left");
+    const nextBtn = document.querySelector(".right");
+
+    let currentIndex = 0;
+    const itemsPerPage = 3; 
+    const totalItems = products.length;
+
+    function updateCarousel() {
+        let offset = -(currentIndex * (100 / itemsPerPage)); 
+        productList.style.transform = `translateX(${offset}%)`;
+    }
+
+    nextBtn.addEventListener("click", function () {
+        if (currentIndex + itemsPerPage < totalItems) {
+            currentIndex += itemsPerPage;
+        } else {
+            currentIndex = totalItems - itemsPerPage;
+        }
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener("click", function () {
+        if (currentIndex - itemsPerPage >= 0) {
+            currentIndex -= itemsPerPage;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    });
+});
+
+
+    </script>
+
+</body>
+</html>
